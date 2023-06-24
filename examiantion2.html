@@ -1,0 +1,181 @@
+<html>
+<head>
+<link href="examination 2.css" rel="stylesheet">
+</head>
+<script>
+var q=["Pm of India","2+4=?","3+6=?","4*3=?","4+3=?"];
+var op1=["Narendra modi","16","918","12","7"];
+var op2=["rahul gandhi","20","9","16","8"];
+var op3=["mamta banerjee","6","10","20","6"];
+var op4=["amit shah","7","11","12","13"];
+var ans=[1,3,2,1,1];
+var c=[0,0,0,0,0];
+var m=10;
+var s=10;
+var z=setInterval(function(){
+document.getElementById('x').innerHTML="Time left:"+m+":"+s;
+if(m<10)
+{document.getElementById('x').style.color='yellow';}
+s--;
+if(s==-1)
+{
+m--;
+s=60;
+}
+if(m==-1)
+{
+clearInterval(z);
+finish();
+}
+if(m<10)
+{
+document.getElementById('x').style.backgroundColor="red";
+}
+},1000);
+var index;
+function show2(v){
+document.getElementById('v').innerHTML="Question "+": "+q[v]+"<br>"+"<input type='radio' id='b1' name=x value='1' class='t3' >"+op1[v]+"<br>"+"<input type='radio' id='b2' name=x value='2'  class='t3'>"+op2[v]+"<br>"+"<input type='radio' id='b3' name=x value='3'  class='t3'>"+op3[v]+"<br>"+"<input type='radio' id='b4' name=x  value='4'  class='t3'>"+op4[v];
+
+}
+function show3()
+{
+document.getElementById('v').innerHTML="";
+}
+function show1(v){
+index=v;
+var e=v+1;
+
+document.getElementById('y').innerHTML="Question "+e+": "+q[v]+"<br>"+"<input type='radio' id='b1' name=x value='1' class='t3' >"+op1[v]+"<br>"+"<input type='radio' id='b2' name=x value='2'  class='t3'>"+op2[v]+"<br>"+"<input type='radio' id='b3' name=x value='3'  class='t3'>"+op3[v]+"<br>"+"<input type='radio' id='b4' name=x  value='4'  class='t3'>"+op4[v];
+document.getElementById('t').innerHTML="";
+
+
+}
+function display()
+{
+document.getElementById('y').innerHTML="";
+}
+
+function next()
+{
+if(index<4)
+{
+
+show1(index+1);
+document.getElementById('t').innerHTML="";
+}
+else
+{
+alert('last question');
+document.getElementById('t').innerHTML="";
+}
+
+}
+function prev()
+{
+if(index>0)
+{
+show1(index-1);
+document.getElementById('t').innerHTML="";
+}
+else
+alert('previous question');
+document.getElementById('t').innerHTML="";
+}
+
+
+function answer()
+{
+var x;
+document.getElementById(index).style.background='cyan';
+if(document.getElementById('b1').checked)
+{
+x=document.getElementById('b1').value;
+}
+else if(document.getElementById('b2').checked)
+{
+x=document.getElementById('b2').value;
+}
+else if(document.getElementById('b3').checked)
+{
+x=document.getElementById('b3').value;
+}
+else if(document.getElementById('b4').checked)
+{
+x=document.getElementById('b4').value;
+}
+ 
+
+if(x==ans[index])
+{
+c[index]=1;
+
+
+
+}
+else{
+c[index]=0;
+}
+
+document.getElementById('t').innerHTML="your answer submitted successfully";
+
+
+
+
+}
+function finish()
+{
+var i;
+var a=0;
+for(i=0;i<c.length;i++)
+{
+a=a+c[i];
+}
+document.getElementById('y').innerHTML="your score is:"+a+"/5";
+
+clearInterval(z);
+document.getElementById('x').innerHTML="Time left:"+"0"+":"+"0";
+document.getElementById('0').style.visibility="hidden";
+document.getElementById('1').style.visibility="hidden";
+document.getElementById('2').style.visibility="hidden";
+document.getElementById('3').style.visibility="hidden";
+document.getElementById('4').style.visibility="hidden";
+//document.getElementById('t5').style.visibility="hidden";
+//document.getElementById('t6').style.visibility="hidden";
+document.getElementById('t7').style.visibility="hidden";
+document.getElementById('t8').style.visibility="hidden";
+document.getElementById('t9').style.visibility="hidden";
+document.getElementById('t10').style.visibility="hidden";
+document.getElementById('t').innerHTML="";
+
+}
+
+</script>
+<body>
+<p id='x' class='d2'></p>
+
+
+<p class='t1' id='u'>
+<input type="button" value="Question 1"  onclick="show1(0)"  id='0' class='t2' style="background-color:green;color:white;box-shadow:5px 5px 5px 5px green;"> 
+<input type="button" value="Question 2"  onclick="show1(1)"   id='1' class='t2' style="background-color:green;color:white;box-shadow:5px 5px 5px 5px green;">
+
+<input type="button" value="Question 3"  onclick="show1(2)"   id='2' class='t2' style="background-color:green;color:white;box-shadow:5px 5px 5px 5px green;">
+
+<input type="button" value="Question 4"  onclick="show1(3)"   id='3' class='t2' style="background-color:green;color:white;box-shadow:5px 5px 5px 5px green;">
+<input type="button" value="Question 5"  onclick="show1(4)"    id='4' class='t2' style="background-color:green;color:white;box-shadow:5px 5px 5px 5px green;"></p>
+
+
+
+<p id='y'></p>
+<p id='v'></p>
+<p class='d1'>
+
+<input type="button" value="previous" onclick="prev()" id='t8' class='t2' style="background-color:orange;color:white;box-shadow:5px 5px 5px 5px orange;">
+<input type="button" value="next"  onclick="next()" id='t7' class='t2' style="background-color:blue;color:white;box-shadow:5px 5px 5px 5px blue;">
+<input type="button" value="submit" onclick="answer()" id='t9' style="background-color:green;color:white;box-shadow:5px 5px 5px 5px green;"class='t2'>
+<input type="button" value="finish" onclick="finish()" id='t10' class='t2' style="background-color:Red;color:white;box-shadow:5px 5px 5px 5px red;">
+</p>
+<p id='t'></p>
+<p id='t1'></p>
+
+</body>
+</html>

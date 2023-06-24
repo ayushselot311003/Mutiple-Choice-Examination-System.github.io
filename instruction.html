@@ -1,0 +1,55 @@
+<html>
+<head>
+<link href="instruction.css" rel="stylesheet">
+</head>
+<script>
+
+function check()
+{
+if(document.getElementById('r').checked)
+{document.getElementById('y').innerHTML="You can start your exam";
+document.getElementById('z').style.visibility="visible";
+}
+else
+{
+document.getElementById('y').innerHTML="";
+document.getElementById('z').style.visibility="hidden";
+
+}
+
+
+
+}
+</script>
+<body>
+<h1><u>General Instructions:</u></h1>
+<p><pre>1. In order to start your test click on the "start" button given at bottom right corner of this page.</pre></p>
+<p><pre>2. The clock time will be set at the server.The clock will displayed on top left corner of the screen.It starts as soon as candidate click on start button.When countdow reaches to 0 test will be finished and you score will be displayed on screen.</pre></p>
+<p><pre>3. The question palete will be displayed on top of screen.It has following color code:
+             a) Not visted question: <div style="width:150px;height:40px;background-color:green;" class='d1'></div>
+             b) Answered question: <div style="width:150px;height:40px;background-color:cyan;" class='d1'></div>
+
+ </pre></p>
+<p><pre>4. Click "submit" button to submit your answer for each question.</pre></p>
+<p><pre>5. Click "finish" button to end your test.</pre></p>
+
+<h1><u>Important Instructions:</u></h1>
+<p><pre>1. The test is of 30 minutes.</pre></p>
+<p><pre>2. The test paper consists of 5 questions. The maximum marks are 5. </pre></p>
+<p><pre>3. The test paper does not consist of negative marking. </pre></p>
+<p><pre>4. Out of four options given, only option is corect answer. </pre></p>
+<p><pre>5. For each correct answer candidate will be awarded 1 marks.</pre></p>
+<input type='checkbox' onclick="check()" id='r'>I have agreed to terms and conditions.
+<p id='y'></p>
+
+
+<a href="examiantion2.html">
+
+<input type='button' value='start' id='z' class='d2' >
+</a>
+<script>
+document.getElementById('z').style.visibility="hidden";
+
+</script>
+</body>
+</html>
